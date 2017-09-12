@@ -1,0 +1,95 @@
+<extends src='layout.html'>
+  <block name='content'>
+    <section class="header">
+      <div class="duotone-wrapper">
+        <div class="duotone bg">
+          <div class="featured image" style="background-image: url('{{ contentful.podcasts.slice().reverse()[0].fields.largePicture.fields.file.url }}')"></div>
+        </div>
+        <div class="duotone fg">
+          <div class="featured image" style="background-image: url('{{ contentful.podcasts.slice().reverse()[0].fields.largePicture.fields.file.url }}')"></div>
+        </div>
+      </div>
+
+      <div class="featured-info">
+        <h1 class="logotype">
+          <span class="small">The</span><br>
+          Work<br>
+          We Do
+        </h1>
+
+        <div class="episode-info">
+          <h2>{{ contentful.podcasts.slice().reverse()[0].fields.guestName }}</h2>
+          <h3>{{ contentful.podcasts.slice().reverse()[0].fields.guestDescription }}</h3>
+          <h4>Episode {{ contentful.podcasts.slice().reverse()[0].fields.number }}</h4>
+        </div>
+
+        <a class="cta-button" href="/podcasts/{{contentful.podcasts.slice().reverse()[0].fields.number}}-{{slug(contentful.podcasts.slice().reverse()[0].fields.guestName).toLowerCase()}}"><span>Jump In</span> <span class="arrow">→</span></a>
+      </div>
+    </section>
+
+    <section class="episode-grid invisible">
+      <div class="episode standout">
+        <div class="wrapper">
+          <div class="link-name">About</div>
+          
+          <div class="description">
+           <p> The Work We Do is a podcast about people redefining the meaning and purpose of work. Those who are embracing new ways of working – the dreamers, doers, believers and thinkers.</p>
+
+            <p>Sometimes witty, sometimes reflective, these long-form conversations explore the terrains of building a modular career, of being a nomad, of spirituality, wellbeing, community, and the meaningfulness of work.</p>
+          </div>
+          <a class="cta" href="pcast://audioboom.com/channels/4910770.rss" target="_blank">
+            <span class="listen">Subscribe</span> <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <each loop="podcast, i of contentful.podcasts.slice().reverse().slice(1)">
+        <div class="episode">
+          <div class="duotone-wrapper image-header">
+            <div class="duotone bg">
+              <div class="image" style="background-image: url('{{ podcast.fields.smallPicture.fields.file.url }}')"></div>
+            </div>
+            <div class="duotone fg">
+              <div class="image" style="background-image: url('{{ podcast.fields.smallPicture.fields.file.url }}')"></div>
+            </div>
+          </div>
+<!--           <div class="duotone">
+            <div class="image-header image" style="background-image: url('{{ podcast.fields.smallPicture.fields.file.url }}')"></div>
+          </div> -->
+          <div class="desc-wrapper">
+            <a class="link-name" href="/podcasts/{{podcast.fields.number}}-{{slug(podcast.fields.guestName).toLowerCase()}}">
+              <span class="name">{{ podcast.fields.guestName }}</span> <span class="arrow">→</span>
+            </a>
+            
+            <div class="description">
+              {{ md(podcast.fields.shortDescription) }}
+            </div>
+          </div>
+        </div>
+
+        <if condition="i === 3">
+          <div class="episode standout">
+            <div class="wrapper">
+              <div class="link-name">Newsletter</div>
+              
+              <div class="description">
+                <p>Subscribe to stay up to date with the podcast and annoucements</p>
+
+                <form action="https://tinyletter.com/mathieutriay" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/mathieutriay', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+                  <input type="email" placeholder="Enter your email" name="email" id="tlemail" />
+                  <input type="hidden" value="1" name="embed"/>
+                  <input type="submit" value="Subscribe" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </if>
+      </each>
+    </section>
+
+    <div class="footer">
+      <div>The Work We Do {{ new Date().getFullYear() }}</div>
+      <div>Powered by Contentful</div>
+    </div>
+  </block>
+</extends>

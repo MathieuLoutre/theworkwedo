@@ -1,0 +1,87 @@
+<extends src='layout.html'>
+	<block name='content'>
+		<div class="podcast-info">
+			<div class="audio-player">
+				<div class="play-pause-button">
+					<svg class="play" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<path d="M2 24v-24l20 12-20 12z" />
+					</svg>
+					<svg class="pause hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<path d="M10 24h-6v-24h6v24zm10-24h-6v24h6v-24z" />
+					</svg>
+				</div>
+				<div class="player">
+					<div class="time"><span class="current-time">00:00</span>/<span class="total-time">{{item.fields.duration}}</span></div>
+					<div class="progress"></div>
+					<div class="notes">
+						<each loop="note, i of contentful.notes.filter((el) => el.fields.podcast.sys.id === item.sys.id)">
+							<div href="#{{note.sys.id}}" class="note-pastille" data-timestamp="{{note.fields.timestamp}}" data-id={{note.sys.id}} style="left: {{(toMs(note.fields.timestamp) / toMs(item.fields.duration)) * 100}}%;"></div>
+						</each>
+					</div>
+				</div>
+				<iframe class="sc-player" src="//w.soundcloud.com/player/?url=https://soundcloud.com/theworkwedo/{{item.fields.soundcloudId}}"></iframe>
+			</div>
+
+			<div class="info">
+				<section class="podcast-intro">
+					<a class="back" href="/">←</a>
+
+					<h1>{{ item.fields.guestName }}</h1>
+					<h2>{{ item.fields.guestDescription }}</h2>
+					<h3>Episode {{ item.fields.number }}</h3>
+
+					<div class="long-description">
+						{{ md(item.fields.longDescription) }}
+					</div>
+				</section>
+
+				<div class="duotone-wrapper image-header">
+				  <div class="duotone bg">
+				    <div class="image" style="background-image: url('{{item.fields.largePicture.fields.file.url}}')"></div>
+				  </div>
+				  <div class="duotone fg">
+				    <div class="image" style="background-image: url('{{item.fields.largePicture.fields.file.url}}')"></div>
+				  </div>
+				</div>
+			</div>
+			<div class="show-notes">
+				<h2>Show Notes</h2>
+
+				<div class="notes-grid invisible">
+					<each loop="note, i of contentful.notes.filter((el) => el.fields.podcast.sys.id === item.sys.id).sort((a, b) => toMs(a.fields.timestamp) - toMs(b.fields.timestamp))">
+
+						<div class="note-wrapper {{!note.fields.media && !note.fields.url ? 'quote-wrapper' : ''}}">
+
+							<div class="note {{note.fields.media ? 'media' : ''}} {{!note.fields.media && !note.fields.url ? 'quote' : ''}} {{!note.fields.media && !note.fields.url && note.fields.content.length < 100 ? 'big' : '' }} {{note.fields.url && !note.fields.media ? 'link' : ''}}" id="{{note.sys.id}}">
+								<if condition="note.fields.url && note.fields.media">
+									{{md(note.fields.content || '')}}
+									<p><a target="_blank" class="media-link" href="{{note.fields.url}}">See more <span class="arrow">→</span></a></p>
+									<a target="_blank" href="{{note.fields.url}}"><img src="{{note.fields.media.fields.file.url}}" /></a>
+								</if>
+								<elseif condition="note.fields.media">
+									{{md(note.fields.content || '')}}
+									<img src="{{note.fields.media.fields.file.url}}" />
+								</elseif>
+								<elseif condition="note.fields.url">
+									<a target="_blank" href="{{note.fields.url}}">
+										<span class="title">{{note.fields.content || ''}}</span>
+										<span class="arrow">→</span>
+									</a>
+								</elseif>
+								<else>
+									{{md(note.fields.content || '')}}
+								</else>
+							</div>
+							<div class="timestamp" data-timestamp="{{note.fields.timestamp}}">{{note.fields.timestamp}}</div>
+						</div>
+					</each>
+				</div>
+
+				<div class="footer">
+				  <div>The Work We Do {{ new Date().getFullYear() }}</div>
+				  <div>Powered by Contentful</div>
+				</div>
+			</div>
+		</div>
+	</block>
+</extends>

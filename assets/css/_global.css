@@ -1,0 +1,780 @@
+@font-face
+	font-family: 'Metropolis'
+	src: url('../fonts/Metropolis-Bold.woff') format('woff')
+	font-weight: 800
+	font-style: normal
+
+@font-face
+	font-family: 'Metropolis'
+	src: url('../fonts/Metropolis-BoldItalic.woff') format('woff')
+	font-weight: 800
+	font-style: italic
+
+@font-face
+	font-family: 'Metropolis'
+	src: url('../fonts/Metropolis-Semibold.woff') format('woff')
+	font-weight: 400
+	font-style: normal
+
+@font-face
+	font-family: 'Metropolis'
+	src: url('../fonts/Metropolis-SemiboldItalic.woff') format('woff')
+	font-weight: 400
+	font-style: italic
+
+@font-face
+	font-family: 'Metropolis'
+	src: url('../fonts/Metropolis-Regular.woff') format('woff')
+	font-weight: 300
+	font-style: normal
+
+@font-face
+	font-family: 'Metropolis'
+	src: url('../fonts/Metropolis-Italic.woff') format('woff')
+	font-weight: 300
+	font-style: italic
+
+@keyframes pulse
+	from
+		transform: scale3d(1, 1, 1)
+
+	50%
+		transform: scale3d(1.02, 1.02, 1.02)
+
+	to
+		transform: scale3d(1, 1, 1)
+
+body
+	background-color: white
+	color: black
+	font-family: 'Metropolis'
+	line-height: 1.4
+	font-size: 1.25rem
+	text-rendering: optimizeLegibility
+	font-variant-ligatures: common-ligatures
+	font-feature-settings: "kern", "liga"
+	font-kerning: normal
+	font-weight: 300
+
+.logotype
+	font-size: 5rem
+	font-weight: 800
+	line-height: 0.8
+	text-transform: uppercase
+	letter-spacing: -0.03em
+	margin-top: -1rem
+	padding-bottom: 3rem
+
+	@media (max-width: 500px)
+		font-size: 4rem
+		padding-bottom: 1rem
+		margin-top: 0
+	
+	& .small
+		font-size: 54%
+		letter-spacing: 0
+
+.footer
+	width: 100%
+	display: flex
+	justify-content: space-between
+	padding: 3rem
+	font-size: 80%
+
+.header
+	min-height: 90vh
+	background: #ff3652
+	color: white
+	display: flex
+	flex-direction: row
+
+	& .duotone-wrapper
+		width: 100%
+
+	& .featured
+		width: 100%
+		height: 100%
+		background-size: cover
+		background-position: center center
+
+	& .featured-info
+		width: 30%
+		min-height: 100%
+		max-width: 27rem
+		min-width: 20em
+		padding: 2rem
+		-webkit-font-smoothing: antialiased
+		-moz-osx-font-smoothing: grayscale
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+
+		@media (max-width: 500px)
+			min-width: 100%
+			padding: 2rem 1rem
+
+		& .episode-info
+			line-height: 1
+			padding-bottom: 3rem
+
+			@media (max-width: 500px)
+				padding-bottom: 0
+
+			& h2
+				font-size: 3rem
+				font-weight: 800
+				margin-bottom: 0.7rem
+				line-height: 0.9
+
+				@media (max-width: 500px)
+					font-size: 2.5rem
+
+			& h3
+				font-size: 2rem
+				font-weight: 800
+				padding-bottom: 1rem
+
+				@media (max-width: 500px)
+					font-size: 1.5rem
+
+			& h4
+				font-size: 1.5rem
+
+	& .cta-button
+		line-height: 0.9
+		padding: 0.8rem 1rem 0.6rem 1rem
+		background: #fdda04
+		color: #2607aa
+		text-transform: uppercase
+		font-weight: 800
+		text-decoration: none
+		letter-spacing: 0.02em
+		font-weight: 1.2rem
+		width: 100%
+		display: flex
+		justify-content: space-between
+
+		& .arrow
+			transition: transform 0.3s ease
+			transform: translateX(0%)
+
+		&:hover
+			& .arrow
+				transform: translateX(20%)
+
+	@media (max-width: 800px)
+		flex-direction: column-reverse
+		height: auto
+		
+		& .duotone-wrapper
+			height: 20rem
+
+		& h1
+			margin-bottom: 2rem
+			
+		& .episode-info
+			margin-bottom: 2rem
+
+// .duotone
+// 	position: relative
+// 	background-color: #fdfcf6 //#fdda04
+// 	transition: background-color 1s ease
+
+// 	& .image
+// 		transition: filter 1s ease
+// 		filter: grayscale(1) brightness(1.4) contrast(0.85)
+
+// @supports (mix-blend-mode: multiply)
+// 	.duotone
+// 		& .image
+// 			mix-blend-mode: multiply
+
+// 		&::after
+// 			content: ''
+// 			position: absolute
+// 			width: 100%
+// 			height: 100%
+// 			top: 0
+// 			left: 0
+// 			mix-blend-mode: lighten
+// 			background-color: #2607aa
+// 			transition: all 1s ease
+
+.duotone-wrapper
+	position: relative
+
+	& .duotone
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+
+		& .image
+			position: absolute
+			top: 0
+			left: 0
+			background-size: cover
+			background-position: center center
+			width: 100%
+			height: 100%
+			mix-blend-mode: multiply
+			filter: grayscale(100%) contrast(1.1) brightness(1.5)
+		
+		&.bg
+			background-color: #1403a9
+
+			& .image
+				filter: grayscale(100%) contrast(0.8) brightness(0.8) invert(100%)
+		
+		&.fg
+			background-color: #FF3615
+			mix-blend-mode: screen
+
+.episode-grid
+	display: flex
+	justify-content: space-around
+	padding: 2rem 1.5rem
+	opacity: 1
+	transition: opacity 0.3s ease
+
+	&.invisible
+		opacity: 0
+
+	@media (max-width: 850px)
+		padding: 2rem 0.75rem
+
+	@media (max-width: 500px)
+		padding: 2rem 0.4rem
+
+	& .col
+		width: 100%
+		max-width: 32rem
+		padding: 0rem 1.5rem
+
+		@media (max-width: 1000px)
+			padding: 0rem 1rem
+
+		@media (max-width: 850px)
+			padding: 0rem 0.5rem
+
+		@media (max-width: 500px)
+			padding: 0rem 0.4rem
+	
+	& .episode
+		width: 100%
+		max-width: 32rem
+		margin: auto
+		padding-bottom: 3rem
+
+		&.standout
+			& .wrapper
+				background: #fdda04
+				color: black
+				padding: 1rem
+
+				& form
+					font-size: 1.1rem
+					padding-top: 1.2rem
+					display: flex
+
+					& input
+						border: 0
+						background: white
+						font-size: 1.1rem
+						padding: 0.5rem 0.8rem
+
+						&[type="email"]
+							width: 100%
+
+						&[type="submit"]
+							background: #2607aa
+							color: white
+
+		& .image-header
+			height: 22vw
+			background-size: cover
+			background-position: center center
+			margin-bottom: 1.5rem
+
+		& .desc-wrapper
+			background: white
+			padding-left: 1.5rem
+			border-left: 0.5rem #fdda04 solid
+			width: 100%
+			margin: auto
+
+			@media (max-width: 500px)
+				padding-left: 0.8rem
+		
+		& .link-name
+			font-size: 2rem
+			font-weight: 800
+			padding-bottom: 1rem
+			line-height: 1
+			color: black
+			text-decoration: none
+			display: block
+			
+			& .arrow
+				padding-left: 0.3rem
+				transition: transform 0.3s ease
+				transform: translateX(0%)
+				display: inline-block
+
+			& .name
+				z-index: 10
+				background-image: linear-gradient(to right, #fdda04 0%, #fdda04 100%)
+				background-repeat: repeat-x
+				background-position: 0 90%
+				background-size: 100% 40%
+				transition: background-size 0.3s ease
+				
+			&:hover
+				& .arrow
+					transform: translateX(20%)
+
+				& .name
+					background-size: 100% 100%
+			
+		& .description
+			& p
+				font-size: 1.1rem
+				
+			& p + p
+				padding-top: 1rem
+
+		& .cta
+			line-height: 0.9
+			padding: 0.8rem 1rem 0.6rem 1rem
+			background: #2607aa
+			color: white
+			text-transform: uppercase
+			font-weight: 800
+			text-decoration: none
+			letter-spacing: 0.02em
+			font-size: 1.2rem
+			width: 100%
+			display: flex
+			justify-content: space-between
+			margin-top: 1.5rem
+			-webkit-font-smoothing: antialiased
+			-moz-osx-font-smoothing: grayscale
+			
+			& .arrow
+				transition: transform 0.3s ease
+				transform: translateX(0%)
+
+			&:hover
+				& .arrow
+					transform: translateX(20%)
+			
+	@media (max-width: 900px)
+		margin: 0
+		
+		& .episode
+			width: 100%
+			margin: auto
+			padding: 0
+			padding-bottom: 3rem
+			
+			& .image-header
+				height: 15rem
+
+#podcast
+	& .podcast-info
+		display: flex
+		height: 100vh
+		overflow: hidden
+
+		@media (max-width: 1250px)
+			flex-direction: column
+			overflow: visible
+			height: auto
+			
+		& .info
+			width: 70%
+			max-width: 48rem
+			min-width: 28rem
+			border-right: 1rem #fdda04 solid
+			overflow-y: scroll
+
+			@media (max-width: 1250px)
+				width: 100%
+				margin: auto
+				min-width: auto
+				padding-top: 5rem
+				overflow-y: visible
+				border-right: 0
+				border-left: 1rem solid #fdda04
+
+			@media (max-width: 500px)
+				border: 0
+
+			& .image-header
+				min-height: 50vh
+				width: 100%
+				background-size: cover
+				background-position: center center
+
+			& .podcast-intro
+				width: 100%
+				padding: 0 2rem
+				background: white
+				margin: auto
+
+				@media (max-width: 500px)
+					padding-left: 1rem
+					padding-right: 1rem
+
+				& .back
+					display: block
+					font-weight: 400
+					text-decoration: none
+					font-size: 4rem
+					line-height: 1
+					padding-top: 0.4rem
+					padding-bottom: 1.2rem
+					color: black
+					transition: transform 0.3s ease
+					transform: translateX(0%)
+
+					&:hover
+						transform: translateX(-0.5rem)
+
+				& h1
+					font-size: 6.5vw
+					font-weight: 800
+					line-height: 1
+					position: relative
+					z-index: 10
+					background-image: linear-gradient(to right, #fdda04 0%, #fdda04 100%)
+					background-repeat: repeat-x
+					background-position: 0 85%
+					background-size: 100% 35%
+					transition: background-size 0.3s ease
+					display: inline
+
+					@media (min-width: 1440px)
+						font-size: 5rem
+
+					@media (max-width: 1250px)
+						font-size: 5rem
+
+					@media (max-width: 700px)
+						font-size: 13vw
+
+				& h2
+					font-size: 2.5rem
+					font-weight: 800
+					line-height: 1
+					margin-top: 1rem
+
+					@media (max-width: 700px)
+						font-size: 2rem
+
+					@media (max-width: 500px)
+						font-size: 1.5rem
+
+				& h3
+					font-size: 1.5rem
+					line-height: 1
+					margin-top: 1rem
+					font-weight: 800
+
+					@media (max-width: 500px)
+						font-size: 1.2rem
+
+				& .long-description
+					width: 100%
+					font-size: 1.2rem
+					padding-top: 2rem
+					line-height: 1.65
+					padding-bottom: 2rem
+
+					@media (max-width: 500px)
+						font-size: 1.1rem
+						line-height: 1.5
+
+					& p + p
+						padding-top: 1rem
+
+		& .show-notes
+			width: 100%
+			padding-top: 5rem // height of audio player
+			right: 0
+			overflow-y: scroll
+
+			@media (max-width: 1250px)
+				padding-top: 2rem
+				overflow-y: visible
+
+			& h2
+				font-size: 5rem
+				font-weight: 800
+				line-height: 0.9
+				position: relative
+				z-index: 10
+				background-image: linear-gradient(to right, #fdda04 0%, #fdda04 100%)
+				background-repeat: repeat-x
+				background-position: 0 85%
+				background-size: 100% 35%
+				transition: background-size 0.3s ease
+				display: none
+
+				@media (max-width: 1250px)
+					display: inline-block
+					margin-left: 2rem
+					margin-top: 2rem
+
+				@media (max-width: 700px)
+					font-size: 13vw
+
+				@media (max-width: 500px)
+					margin-left: 1rem
+
+			& .notes-grid
+				display: flex
+				justify-content: space-around
+				padding: 2rem 1rem
+				opacity: 1
+				transition: opacity 0.3s ease
+				position: relative
+
+				@media (max-width: 1250px)
+					position: static
+
+				&.invisible
+					opacity: 0
+
+				& .col
+					width: 50%
+					max-width: 32rem
+					padding: 0 0.75rem
+
+					@media (max-width: 1250px)
+						width: 33%
+
+					@media (max-width: 1000px)
+						width: 50%
+
+					@media (max-width: 750px)
+						width: 100%
+
+					@media (max-width: 500px)
+						padding: 1rem 0.5rem
+
+				& .note-wrapper
+					margin-bottom: 2rem
+
+					&.quote-wrapper:nth-of-type(2n)
+						& .quote
+							background: #fdda04
+							color: black
+
+					& .timestamp
+						font-size: 0.8rem
+						opacity: 0.7
+						color: black
+						background-image: linear-gradient(to right, #fdda04 0%, #fdda04 100%)
+						background-repeat: repeat-x
+						background-position: 0 100%
+						background-size: 100% 35%
+						transition: background-size 0.3s ease, opacity 0.3s ease
+						display: inline
+						cursor: pointer
+
+						&:hover
+							background-size: 100% 100%
+							opacity: 1
+
+				& .note
+					width: 100%
+					max-width: 32rem
+					margin: auto
+
+					&.active
+						animation: pulse 0.5s
+						animation-delay: 0.6s
+
+					&.media
+						& img
+							width: 100%
+							max-width: 100%
+							display: block
+
+						& p
+							font-size: 75%
+							opacity: 0.7
+							padding-bottom: 0.5rem
+
+							& a
+								color: black
+								text-decoration: none
+								background-image: linear-gradient(to right, #fdda04 0%, #fdda04 100%)
+								background-repeat: repeat-x
+								background-position: 0 100%
+								background-size: 100% 35%
+								transition: background-size 0.3s ease
+								font-weight: 400
+
+								&:hover
+									background-size: 100% 100%
+
+						& .media-link
+							font-weight: 400
+							text-decoration: none
+							color: black
+							background-image: linear-gradient(to right, #fdda04 0%, #fdda04 100%)
+							background-repeat: repeat-x
+							background-position: 0 100%
+							background-size: 100% 35%
+							transition: background-size 0.3s ease
+
+							&:hover
+								background-size: 100% 100%
+
+					&.quote
+						background: #2607aa
+						color: white
+						padding: 1rem
+						border-radius: 2px
+						-webkit-font-smoothing: antialiased
+						-moz-osx-font-smoothing: grayscale
+
+						&.big
+							font-size: 1.85rem
+							line-height: 1.2
+
+						& p + p
+							padding-top: 0.5em
+
+					&.link
+						& a
+							display: block
+							text-decoration: none
+							color: black
+							font-weight: 800
+							font-size: 1.8rem
+
+							& .title
+								display: inline
+								background-image: linear-gradient(to right, #fdda04 0%, #fdda04 100%)
+								background-repeat: repeat-x
+								background-position: 0 100%
+								background-size: 100% 35%
+								transition: background-size 0.3s ease
+
+							& .arrow
+								display: inline-block
+								transition: transform 0.3s ease
+								transform: translateX(0%)
+
+							&:hover
+								& .title
+									background-size: 100% 100%
+
+								& .arrow
+									transform: translateX(20%)
+		&:hover
+			& .arrow
+				transform: translateX(20%)
+
+	& .audio-player
+		height: 5rem
+		display: flex
+		justify-content: space-between
+		align-items: center
+		top: 0
+		right: 0
+		background: #ff3652
+		position: fixed
+		width: 58.5%
+		z-index: 100
+		overflow: hidden
+
+		@media (max-width: 1250px)
+			width: 100%
+
+		& .sc-player
+			position: absolute
+			top: -1000px
+			visibility: hidden
+
+		& .play-pause-button
+			height: 3rem
+			width: 3rem
+			border-radius: 50%
+			background: white
+			flex-shrink: 0
+			margin-left: 1rem
+			margin-right: 1rem
+			display: flex
+			align-items: center
+			justify-content: center
+			cursor: pointer
+			transition: background-color 0.3s ease
+
+			&:hover
+				background: #fdda04
+
+			& svg
+				width: 50%
+				fill: #ff3652
+
+				&.hidden
+					display: none
+
+				&.play
+					margin-left: 10%
+
+		& .player
+			position: relative
+			width: 100%
+			height: 1.2rem
+			background: white
+			margin-right: 1.2rem
+			cursor: pointer
+			display: flex
+			justify-content: flex-end
+			align-items: center
+
+			& .time
+				font-size: 0.7rem
+				padding-right: 0.5rem
+				z-index: 100
+				transition: opacity 0.3s ease
+				opacity: 1
+
+				&.hidden
+					opacity: 0
+
+			& .notes
+				z-index: 50
+				position: absolute
+				left: 0
+				top: 100%
+				width: 100%
+				height: 100%
+
+				& .note-pastille
+					position: absolute
+					top: 0.5rem
+					background: #fdda04
+					padding: 0.35rem
+					border-radius: 50%
+					transform: translateX(-50%)
+					border: 1px solid #ff3652
+					transition: background 0.3s ease
+
+					&:hover
+						background: white
+
+			& .progress
+				height: 100%
+				background: #fdda04
+				opacity: 1
+				width: 0
+				left: 0
+				top: 0
+				position: absolute

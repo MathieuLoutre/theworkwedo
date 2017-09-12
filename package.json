@@ -1,0 +1,39 @@
+{
+  "name": "theworkwedo",
+  "description": "The Work We Do Website",
+  "version": "1.0.0",
+  "author": "Mathieu Triay",
+  "bugs": "https://github.com//spike-test/issues",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "marked": "^0.3.6",
+    "reshape-standard": "^3.0.0",
+    "scroll-into-view": "^1.9.0",
+    "slug": "^0.9.1",
+    "smooth-scroll": "^12.1.5",
+    "spike": "^2.0.0",
+    "@mathieuloutre/spike-contentful": "^2.2.0",
+    "spike-css-standards": "^3.0.0",
+    "spike-js-standards": "^2.0.2",
+    "spike-optimize": "^0.1.2",
+    "spike-page-id": "^1.0.0",
+    "sugarss": "^1.0.0"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "rimraf": "^2.6.1",
+    "snazzy": "^7.0.0",
+    "standard": "^10.0.2"
+  },
+  "homepage": "https://github.com//spike-test",
+  "main": "app.js",
+  "private": true,
+  "repository": "https://github.com//spike-test",
+  "scripts": {
+    "lint": "standard | snazzy",
+    "precommit": "npm run lint -s",
+    "start": "spike watch",
+    "build": "spike compile",
+    "prod": "NODE_ENV=production spike compile -e production"
+  }
+}
