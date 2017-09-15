@@ -83,7 +83,7 @@ body
 
 .header
 	min-height: 90vh
-	background: #ff3652
+	background: #2f1241
 	color: white
 	display: flex
 	flex-direction: row
@@ -144,7 +144,7 @@ body
 		line-height: 0.9
 		padding: 0.8rem 1rem 0.6rem 1rem
 		background: #fdda04
-		color: #2607aa
+		color: #2f1241
 		text-transform: uppercase
 		font-weight: 800
 		text-decoration: none
@@ -197,7 +197,7 @@ body
 // 			top: 0
 // 			left: 0
 // 			mix-blend-mode: lighten
-// 			background-color: #2607aa
+// 			background-color: #2f1241
 // 			transition: all 1s ease
 
 .duotone-wrapper
@@ -222,13 +222,13 @@ body
 			filter: grayscale(100%) contrast(1.1) brightness(1.5)
 		
 		&.bg
-			background-color: #1403a9
+			background-color: #22014c
 
 			& .image
 				filter: grayscale(100%) contrast(0.8) brightness(0.8) invert(100%)
 		
 		&.fg
-			background-color: #FF3615
+			background-color: #fdda04
 			mix-blend-mode: screen
 
 .episode-grid
@@ -269,7 +269,7 @@ body
 
 		&.standout
 			& .wrapper
-				background: #fdda04
+				background: #e4e4e4
 				color: black
 				padding: 1rem
 
@@ -288,7 +288,7 @@ body
 							width: 100%
 
 						&[type="submit"]
-							background: #2607aa
+							background: #2f1241
 							color: white
 
 		& .image-header
@@ -347,7 +347,7 @@ body
 		& .cta
 			line-height: 0.9
 			padding: 0.8rem 1rem 0.6rem 1rem
-			background: #2607aa
+			background: #2f1241
 			color: white
 			text-transform: uppercase
 			font-weight: 800
@@ -635,7 +635,7 @@ body
 								background-size: 100% 100%
 
 					&.quote
-						background: #2607aa
+						background: #2f1241
 						color: white
 						padding: 1rem
 						border-radius: 2px
