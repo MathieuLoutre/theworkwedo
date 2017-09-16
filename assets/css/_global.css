@@ -175,61 +175,61 @@ body
 		& .episode-info
 			margin-bottom: 2rem
 
-// .duotone
-// 	position: relative
-// 	background-color: #fdfcf6 //#ffd700
-// 	transition: background-color 1s ease
-
-// 	& .image
-// 		transition: filter 1s ease
-// 		filter: grayscale(1) brightness(1.4) contrast(0.85)
-
-// @supports (mix-blend-mode: multiply)
-// 	.duotone
-// 		& .image
-// 			mix-blend-mode: multiply
-
-// 		&::after
-// 			content: ''
-// 			position: absolute
-// 			width: 100%
-// 			height: 100%
-// 			top: 0
-// 			left: 0
-// 			mix-blend-mode: lighten
-// 			background-color: #2f1241
-// 			transition: all 1s ease
-
-.duotone-wrapper
+.duotone
 	position: relative
+	background-color: #f0f3ca //#ffd700
+	transition: background-color 1s ease
 
-	& .duotone
-		position: absolute
-		top: 0
-		left: 0
-		width: 100%
-		height: 100%
+	& .image
+		transition: filter 1s ease
+		filter: grayscale(1) brightness(1.3) contrast(0.9)
 
+@supports (mix-blend-mode: darken)
+	.duotone
 		& .image
+			mix-blend-mode: darken
+
+		&::after
+			content: ''
 			position: absolute
-			top: 0
-			left: 0
-			background-size: cover
-			background-position: center center
 			width: 100%
 			height: 100%
-			mix-blend-mode: multiply
-			filter: grayscale(100%) contrast(1.1) brightness(1.5)
-		
-		&.bg
-			background-color: #260452
-
-			& .image
-				filter: grayscale(100%) contrast(0.8) brightness(0.8) invert(100%)
-		
-		&.fg
-			background-color: #f0f3ca
+			top: 0
+			left: 0
 			mix-blend-mode: screen
+			background-color: #260452
+			transition: all 1s ease
+
+// .duotone-wrapper
+// 	position: relative
+
+// 	& .duotone
+// 		position: absolute
+// 		top: 0
+// 		left: 0
+// 		width: 100%
+// 		height: 100%
+
+// 		& .image
+// 			position: absolute
+// 			top: 0
+// 			left: 0
+// 			background-size: cover
+// 			background-position: center center
+// 			width: 100%
+// 			height: 100%
+// 			mix-blend-mode: multiply
+// 			filter: grayscale(100%) contrast(1.1) brightness(1.5)
+		
+// 		&.bg
+// 			background-color: #260452
+
+// 			& .image
+// 				filter: grayscale(100%) contrast(0.8) brightness(0.8) invert(100%)
+		
+// 		&.fg
+// 			background-color: #f0f3ca
+// 			mix-blend-mode: screen
 
 .episode-grid
 	display: flex
@@ -296,6 +296,9 @@ body
 			background-size: cover
 			background-position: center center
 			margin-bottom: 1.5rem
+			// border-top: 0.5rem #ffd700 solid
+
+		& .duotone
 			border-top: 0.5rem #ffd700 solid
 
 		& .desc-wrapper
@@ -572,6 +575,22 @@ body
 						& .quote
 							background: #ffd700
 							color: black
+
+					& .functions
+
+						& a
+							display: inline-block
+							margin-left: 0.25rem
+							
+							& svg
+								width: 0.9em
+								height: 0.9em
+								fill: #1da1f2
+								vertical-align: middle
+								display: inline-block
+
+								&:hover
+									fill: yellow
 
 					& .timestamp
 						font-size: 0.8rem

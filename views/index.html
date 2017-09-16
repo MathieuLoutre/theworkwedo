@@ -1,13 +1,17 @@
 <extends src='layout.html'>
   <block name='content'>
     <section class="header">
-      <div class="duotone-wrapper">
+<!--       <div class="duotone-wrapper">
         <div class="duotone bg">
           <div class="featured image" style="background-image: url('{{ contentful.podcasts.slice().reverse()[0].fields.largePicture.fields.file.url }}')"></div>
         </div>
         <div class="duotone fg">
           <div class="featured image" style="background-image: url('{{ contentful.podcasts.slice().reverse()[0].fields.largePicture.fields.file.url }}')"></div>
         </div>
+      </div> -->
+
+      <div class="duotone duotone-wrapper">
+        <div class="featured image" style="background-image: url('{{ contentful.podcasts.slice().reverse()[0].fields.largePicture.fields.file.url }}')"></div>
       </div>
 
       <div class="featured-info">
@@ -45,17 +49,17 @@
 
       <each loop="podcast, i of contentful.podcasts.slice().reverse().slice(1)">
         <div class="episode">
-          <div class="duotone-wrapper image-header">
+<!--           <div class="duotone-wrapper image-header">
             <div class="duotone bg">
               <div class="image" style="background-image: url('{{ podcast.fields.smallPicture.fields.file.url }}')"></div>
             </div>
             <div class="duotone fg">
               <div class="image" style="background-image: url('{{ podcast.fields.smallPicture.fields.file.url }}')"></div>
             </div>
-          </div>
-<!--           <div class="duotone">
-            <div class="image-header image" style="background-image: url('{{ podcast.fields.smallPicture.fields.file.url }}')"></div>
           </div> -->
+          <div class="duotone">
+            <div class="image-header image" style="background-image: url('{{ podcast.fields.smallPicture.fields.file.url }}')"></div>
+          </div>
           <div class="desc-wrapper">
             <a class="link-name" href="/podcasts/{{podcast.fields.number}}-{{slug(podcast.fields.guestName).toLowerCase()}}">
               <span class="name">{{ podcast.fields.guestName }}</span> <span class="arrow">→</span>
