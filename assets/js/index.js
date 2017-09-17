@@ -3,6 +3,8 @@ const $window = $(window)
 
 window.$ = $
 
+const ga = ga || function () {}
+
 class OrderedColumns {
 	constructor (gridConfig, $el, $items) {
 		this.$el = $el
@@ -70,6 +72,14 @@ const notesGrid = new OrderedColumns({
 	cols: [1, 2, 3, 2]
 }, $(".notes-grid"), $('.notes-grid .note-wrapper'))
 
+$('.cta-button').on('click', (ev) => {
+	ga('send', 'event', 'Home', 'header-cta-click')
+})
+
+$('.subscribe').on('click', (ev) => {
+	ga('send', 'event', 'Home', 'subscribe-cta-click')
+})
+
 const activePlayer = $('iframe.sc-player')[0]
 
 if (activePlayer) {
@@ -87,7 +97,6 @@ if (activePlayer) {
 	let canPlay = false
 
 	const setDimensions = () => {
-		
 		$('.audio-player').css('width', $('.show-notes').width())
 		playerOffset = $player.offset()
 		playerWidth = $player.width()
@@ -97,20 +106,20 @@ if (activePlayer) {
 	setDimensions()
 
 	const togglePlay = () => {
-
 		if (canPlay) {
-			console.log("CAN PLAY", isPlaying)
 			player.toggle()
 
 			if (isPlaying) {
 				isPlaying = false
 				$('.play').removeClass('hidden')
 				$('.pause').addClass('hidden')
+				ga('send', 'event', 'Podcasts', 'pause', $('h3').text())
 			}
 			else {
 				isPlaying = true
 				$('.pause').removeClass('hidden')
 				$('.play').addClass('hidden')
+				ga('send', 'event', 'Podcasts', 'play', $('h3').text())
 			}
 		}
 	}
@@ -142,7 +151,9 @@ if (activePlayer) {
 		ev.stopPropagation()
 		ev.preventDefault()
 
-		const el = $(`#${$(ev.target).data('id')}`)
+		const id = $(ev.target).data('id')
+
+		const el = $(`#${id}`)
 		let offset = 40
 
 		let scrollParent = $(".show-notes")
@@ -159,12 +170,19 @@ if (activePlayer) {
 		scrollParent.animate({
 			scrollTop: el.position().top - offset
 		}, 500)
+
+		ga('send', 'event', 'Podcasts', 'click-time-marker', id)
 	})
 
 	$('.timestamp').on('click', (ev) => {
 		const time = toMs($(ev.target).data('timestamp'))
-		console.log(time/(player.duration / 1000))
 		setPlayHead(time/(player.duration / 1000))
+
+		ga('send', 'event', 'Podcasts', 'click-note', $(ev.target).data('id'))
+	})
+
+	$('.twitter-share').on('click', (ev) => {
+		ga('send', 'event', 'Podcasts', 'share-note', $(ev.target).data('id'))
 	})
 
 	$('.player .notes').on('click', (ev) => {
@@ -192,7 +210,6 @@ if (activePlayer) {
 	})
 
 	$playButton.on('click', (ev) => {
-		console.log("PLAY")
 		togglePlay()
 	})
 
@@ -210,7 +227,8 @@ if (activePlayer) {
 
 	$player.on('click', (ev) => {
 		scrub = (ev.pageX - playerOffset.left) / playerWidth
-
 		setPlayHead(scrub)
+
+		ga('send', 'event', 'Podcasts', 'move-playhead', $('h3').text())
 	})
 }
