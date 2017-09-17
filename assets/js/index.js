@@ -3,8 +3,6 @@ const $window = $(window)
 
 window.$ = $
 
-const ga = ga || function () {}
-
 class OrderedColumns {
 	constructor (gridConfig, $el, $items) {
 		this.$el = $el
@@ -73,11 +71,11 @@ const notesGrid = new OrderedColumns({
 }, $(".notes-grid"), $('.notes-grid .note-wrapper'))
 
 $('.cta-button').on('click', (ev) => {
-	ga('send', 'event', 'Home', 'header-cta-click')
+	gtag('event', 'header-cta-click', { 'event_category': 'Home' })
 })
 
 $('.subscribe').on('click', (ev) => {
-	ga('send', 'event', 'Home', 'subscribe-cta-click')
+	gtag('event', 'subscribe-cta-click', { 'event_category': 'Home' })
 })
 
 const activePlayer = $('iframe.sc-player')[0]
@@ -113,13 +111,21 @@ if (activePlayer) {
 				isPlaying = false
 				$('.play').removeClass('hidden')
 				$('.pause').addClass('hidden')
-				ga('send', 'event', 'Podcasts', 'pause', $('h3').text())
+				
+				gtag('event', 'pause', {
+					'event_category': 'Podcasts',
+					'event_label': $('h3').text()
+				})
 			}
 			else {
 				isPlaying = true
 				$('.pause').removeClass('hidden')
 				$('.play').addClass('hidden')
-				ga('send', 'event', 'Podcasts', 'play', $('h3').text())
+				
+				gtag('event', 'play', {
+					'event_category': 'Podcasts',
+					'event_label': $('h3').text()
+				})
 			}
 		}
 	}
@@ -171,18 +177,27 @@ if (activePlayer) {
 			scrollTop: el.position().top - offset
 		}, 500)
 
-		ga('send', 'event', 'Podcasts', 'click-time-marker', id)
+		gtag('event', 'click-time-marker', {
+			'event_category': 'Podcasts',
+			'event_label': id
+		})
 	})
 
 	$('.timestamp').on('click', (ev) => {
 		const time = toMs($(ev.target).data('timestamp'))
 		setPlayHead(time/(player.duration / 1000))
 
-		ga('send', 'event', 'Podcasts', 'click-note', $(ev.target).data('id'))
+		gtag('event', 'click-note', {
+			'event_category': 'Podcasts',
+			'event_label': $(ev.target).data('id')
+		})
 	})
 
 	$('.twitter-share').on('click', (ev) => {
-		ga('send', 'event', 'Podcasts', 'share-note', $(ev.target).data('id'))
+		gtag('event', 'share-note', {
+			'event_category': 'Podcasts',
+			'event_label': $(ev.target).data('id')
+		})
 	})
 
 	$('.player .notes').on('click', (ev) => {
@@ -229,6 +244,9 @@ if (activePlayer) {
 		scrub = (ev.pageX - playerOffset.left) / playerWidth
 		setPlayHead(scrub)
 
-		ga('send', 'event', 'Podcasts', 'move-playhead', $('h3').text())
+		gtag('event', 'move-playhead', {
+			'event_category': 'Podcasts',
+			'event_label': $('h3').text()
+		})
 	})
 }

@@ -12,6 +12,15 @@
     <meta name='description' content=''>
     <meta name='author' content=''>
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=xxxxxx"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'xxxxxx');
+    </script>
+
     <block name='title'>
       <title>The Work We Do – {{ (item && item.fields) ? item.fields.guestName : "A podcast about people redefining the meaning and purpose of work" }}</title>
     </block>
