@@ -48,7 +48,7 @@ body
 	background-color: white
 	color: black
 	font-family: 'Metropolis'
-	line-height: 1.4
+	line-height: 1.45
 	font-size: 1.25rem
 	text-rendering: optimizeLegibility
 	font-variant-ligatures: common-ligatures
@@ -56,23 +56,27 @@ body
 	font-kerning: normal
 	font-weight: 300
 
-.logotype
-	font-size: 5rem
-	font-weight: 800
-	line-height: 0.8
-	text-transform: uppercase
-	letter-spacing: -0.03em
-	margin-top: -1rem
-	padding-bottom: 3rem
+// .logotype
+// 	font-size: 5rem
+// 	font-weight: 800
+// 	line-height: 0.8
+// 	text-transform: uppercase
+// 	letter-spacing: -0.03em
+// 	margin-top: -1rem
+// 	padding-bottom: 3rem
 
-	@media (max-width: 500px)
-		font-size: 4rem
-		padding-bottom: 1rem
-		margin-top: 0
+// 	@media (max-width: 500px)
+// 		font-size: 4rem
+// 		padding-bottom: 1rem
+// 		margin-top: 0
 	
-	& .small
-		font-size: 54%
-		letter-spacing: 0
+// 	& .small
+// 		font-size: 54%
+// 		letter-spacing: 0
+
+.logo
+	padding-bottom: 2rem
+	width: 100%
 
 .footer
 	width: 100%
@@ -249,7 +253,6 @@ body
 
 	& .col
 		width: 100%
-		max-width: 32rem
 		padding: 0rem 1.5rem
 
 		@media (max-width: 1000px)
@@ -263,7 +266,6 @@ body
 	
 	& .episode
 		width: 100%
-		max-width: 32rem
 		margin: auto
 		padding-bottom: 3rem
 
@@ -274,14 +276,14 @@ body
 				padding: 1rem
 
 				& form
-					font-size: 1.1rem
+					font-size: 1.05rem
 					padding-top: 1.2rem
 					display: flex
 
 					& input
 						border: 0
 						background: white
-						font-size: 1.1rem
+						font-size: 1.05rem
 						padding: 0.5rem 0.8rem
 
 						&[type="email"]
@@ -306,7 +308,7 @@ body
 			padding-left: 1.5rem
 			border-left: 0.5rem #ffd700 solid
 			width: 100%
-			margin: auto
+			max-width: 35rem
 
 			@media (max-width: 500px)
 				padding-left: 0.8rem
@@ -343,7 +345,7 @@ body
 			
 		& .description
 			& p
-				font-size: 1.1rem
+				font-size: 1.05rem
 				
 			& p + p
 				padding-top: 1rem
@@ -481,17 +483,19 @@ body
 						font-size: 1.5rem
 
 				& h3
-					font-size: 1.5rem
+					font-size: 1.25rem
 					line-height: 1
-					margin-top: 1rem
+					margin-top: 1.25rem
 					font-weight: 800
+					text-transform: uppercase
+					letter-spacing: 0.01em
 
 					@media (max-width: 500px)
-						font-size: 1.2rem
+						font-size: 1.25rem
 
 				& .long-description
 					width: 100%
-					font-size: 1.2rem
+					font-size: 1.15rem
 					padding-top: 2rem
 					line-height: 1.65
 					padding-bottom: 2rem
