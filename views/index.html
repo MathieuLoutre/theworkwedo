@@ -20,10 +20,9 @@
           Work<br>
           We Do
         </h1> -->
-
-        <img class="logo" src="/img/logo.svg">
-
         <div class="episode-info">
+          <img class="logo" src="/img/logo.svg">
+
           <h2>{{ contentful.podcasts.slice().reverse()[0].fields.guestName }}</h2>
           <h3>{{ contentful.podcasts.slice().reverse()[0].fields.guestDescription }}</h3>
           <h4>Episode {{ contentful.podcasts.slice().reverse()[0].fields.number }}</h4>

@@ -74,10 +74,6 @@ body
 // 		font-size: 54%
 // 		letter-spacing: 0
 
-.logo
-	padding-bottom: 3rem
-	width: 65%
-
 .footer
 	width: 100%
 	display: flex
@@ -111,7 +107,7 @@ body
 		align-items: center
 
 		& img
-			height: 1.5em
+			height: 2em
 
 .header
 	min-height: 90vh
@@ -119,6 +115,10 @@ body
 	color: #2f1241
 	display: flex
 	flex-direction: row
+
+	& .logo
+		padding-bottom: 2rem
+		width: 90%
 
 	& .duotone-wrapper
 		width: 100%
@@ -133,7 +133,7 @@ body
 		width: 30%
 		min-height: 100%
 		max-width: 27rem
-		min-width: 20em
+		min-width: 17em
 		padding: 2rem
 		-webkit-font-smoothing: antialiased
 		-moz-osx-font-smoothing: grayscale
