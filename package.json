@@ -12,7 +12,7 @@
     "slug": "^0.9.1",
     "smooth-scroll": "^12.1.5",
     "spike": "^2.0.0",
-    "@mathieuloutre/spike-contentful": "^2.2.0",
+    "spike-contentful": "^2.0.1",
     "spike-css-standards": "^3.0.0",
     "spike-js-standards": "^2.0.2",
     "spike-optimize": "^0.1.2",
