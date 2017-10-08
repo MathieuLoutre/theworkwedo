@@ -5,7 +5,7 @@ const pageId = require('spike-page-id')
 const env = process.env.NODE_ENV
 
 const sugarss = require('sugarss')
-const Contentful = require('@mathieuloutre/spike-contentful')
+const Contentful = require('spike-contentful')
 const marked = require('marked')
 const slug = require('slug')
 

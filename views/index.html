@@ -59,7 +59,7 @@
             </div>
           </div> -->
           <div class="duotone">
-            <div class="image-header image" style="background-image: url('{{ podcast.fields.smallPicture.fields.file.url }}')"></div>
+            <div class="image-header image" style="background-image: url('{{ podcast.fields.smallPicture ? podcast.fields.smallPicture.fields.file.url : podcast.fields.largePicture.fields.file.url }}')"></div>
           </div>
           <div class="desc-wrapper">
             <a class="link-name" href="/podcasts/{{podcast.fields.number}}-{{slug(podcast.fields.guestName).toLowerCase()}}">
