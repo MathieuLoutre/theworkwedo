@@ -31,7 +31,7 @@
 					<h3>Episode {{ item.fields.number }}</h3>
 
 					<div class="long-description">
-						{{ md(item.fields.longDescription) }}
+						{{{md(item.fields.longDescription)}}}
 					</div>
 				</section>
 
@@ -49,12 +49,12 @@
 
 							<div class="note {{note.fields.media ? 'media' : ''}} {{!note.fields.media && !note.fields.url ? 'quote' : ''}} {{!note.fields.media && !note.fields.url && note.fields.content.length < 100 ? 'big' : '' }} {{note.fields.url && !note.fields.media ? 'link' : ''}}" id="{{note.sys.id}}">
 								<if condition="note.fields.url && note.fields.media">
-									{{md(note.fields.content || '')}}
+									{{{md(note.fields.content || '')}}}
 									<p><a target="_blank" class="media-link" href="{{note.fields.url}}">See more <span class="arrow">→</span></a></p>
 									<a target="_blank" href="{{note.fields.url}}"><img src="{{note.fields.media.fields.file.url}}" /></a>
 								</if>
 								<elseif condition="note.fields.media">
-									{{md(note.fields.content || '')}}
+									{{{md(note.fields.content || '')}}}
 									<img src="{{note.fields.media.fields.file.url}}" />
 								</elseif>
 								<elseif condition="note.fields.url">
@@ -64,7 +64,7 @@
 									</a>
 								</elseif>
 								<else>
-									{{md(note.fields.content || '')}}
+									{{{md(note.fields.content || '')}}}
 								</else>
 							</div>
 							<div class="functions">

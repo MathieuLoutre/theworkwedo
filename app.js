@@ -9,6 +9,10 @@ const Contentful = require('spike-contentful')
 const marked = require('marked')
 const slug = require('slug')
 
+marked.setOptions({
+  smartypants: true
+})
+
 let locals = {
   md: marked, 
   slug: slug,
