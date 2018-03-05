@@ -459,13 +459,10 @@ body
 						font-size: 13vw
 
 				& h2
-					font-size: 2.5rem
+					font-size: 2rem
 					font-weight: 800
 					line-height: 1
 					margin-top: 1rem
-
-					@media (max-width: 700px)
-						font-size: 2rem
 
 					@media (max-width: 500px)
 						font-size: 1.5rem
