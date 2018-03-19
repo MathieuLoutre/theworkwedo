@@ -47,7 +47,7 @@
 
 						<div class="note-wrapper {{!note.fields.media && !note.fields.url ? 'quote-wrapper' : ''}}">
 
-							<div class="note {{note.fields.media ? 'media' : ''}} {{!note.fields.media && !note.fields.url ? 'quote' : ''}} {{!note.fields.media && !note.fields.url && note.fields.content.length < 100 ? 'big' : '' }} {{note.fields.url && !note.fields.media ? 'link' : ''}}" id="{{note.sys.id}}">
+							<div class="note {{note.fields.media ? 'media' : ''}} {{!note.fields.media && !note.fields.url ? 'quote' : ''}} {{!note.fields.media && !note.fields.url && note.fields.content && note.fields.content.length < 100 ? 'big' : '' }} {{note.fields.url && !note.fields.media ? 'link' : ''}}" id="{{note.sys.id}}">
 								<if condition="note.fields.url && note.fields.media">
 									{{{md(note.fields.content || '')}}}
 									<p><a target="_blank" class="media-link" href="{{note.fields.url}}">See more <span class="arrow">→</span></a></p>
